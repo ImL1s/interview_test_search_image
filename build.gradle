@@ -8,6 +8,8 @@ buildscript {
     ext.navigation_version = "2.3.2"
     ext.material_searchBar_version = "0.8.5"
     ext.timber_version = "4.7.1"
+    ext.fragment_version = "1.2.5"
+    ext.glide_version = "4.11.0"
 
     repositories {
         google()

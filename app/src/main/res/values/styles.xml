@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="defaultProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">@dimen/common_progress_bar_size</item>
+        <item name="android:layout_height">@dimen/common_progress_bar_size</item>
+        <item name="android:indeterminateTint">@color/red</item>
+        <item name="android:indeterminateTintMode">src_in</item>
+    </style>
+
+    <dimen name="common_progress_bar_size">40</dimen>
+    <color name="red">#EE3632</color>
+</resources>
