@@ -1,0 +1,9 @@
+package com.iml1s.interview.test.model
+
+import com.google.gson.annotations.SerializedName
+
+data class SearchResponse(
+	@SerializedName("total") val total: Int,
+	@SerializedName("totalHits") val totalHits: Int,
+	@SerializedName("hits") val hits: List<Hits>
+)

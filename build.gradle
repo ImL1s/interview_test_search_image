@@ -6,6 +6,8 @@ buildscript {
     ext.flow_call_adapter_version = "latest-version"
     ext.lifecycle_version = "2.2.0"
     ext.navigation_version = "2.3.2"
+    ext.material_searchBar_version = "0.8.5"
+    ext.timber_version = "4.7.1"
 
     repositories {
         google()
