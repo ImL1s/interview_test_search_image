@@ -62,6 +62,29 @@ fun setImageViewSourceFromUrl(view: ImageView, imageUrl: String?) {
 }
 // endregion
 
+// region []
+@BindingAdapter("focuse")
+fun setMaterialSearchBarFocuse(materialSearchBar: MaterialSearchBar, focuse: Boolean) {
+//    materialSearchBar.searchEditText.focu
+    // do nothing
+}
+
+@InverseBindingAdapter(attribute = "focuse")
+fun getMaterialSearchBarFocuse(materialSearchBar: MaterialSearchBar): Boolean =
+    materialSearchBar.searchEditText.hasFocus()
+
+@BindingAdapter("focuseAttrChanged")
+fun setMaterialSearchBarFocuseChangeListener(
+    materialSearchBar: MaterialSearchBar,
+    listener: InverseBindingListener
+) {
+    materialSearchBar.searchEditText.onFocusChangeListener =
+        View.OnFocusChangeListener { _, _ ->
+            listener.onChange()
+        }
+}
+// endregion
+
 // region [RecyclerView]
 @BindingAdapter("source")
 fun setRecyclerViewData(recyclerView: RecyclerView, items: List<*>?) {

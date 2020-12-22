@@ -31,6 +31,7 @@ class SearchFragment : Fragment() {
         recyclerView.adapter = SearchResultAdapter()
         lifecycleOwner = this@SearchFragment.viewLifecycleOwner
         searchBar.searchEditText.imeOptions = EditorInfo.IME_ACTION_DONE
+        searchBar.searchEditText.hasFocus()
         searchBar.setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
             override fun onSearchStateChanged(enabled: Boolean) {
                 Timber.d("GG: onSearchStateChanged: $enabled")
@@ -48,16 +49,5 @@ class SearchFragment : Fragment() {
             }
         })
     }.root
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        defaultApiService.search(keyword = "shiba inu")
-            .onEach {
-                Timber.d("search result: $it")
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
-    }
 
 }
