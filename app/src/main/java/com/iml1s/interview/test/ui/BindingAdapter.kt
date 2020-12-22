@@ -62,10 +62,10 @@ fun setImageViewSourceFromUrl(view: ImageView, imageUrl: String?) {
 }
 // endregion
 
-// region []
+// region [MaterialSearchBar Focuse]
+@Suppress("UNUSED_PARAMETER")
 @BindingAdapter("focuse")
 fun setMaterialSearchBarFocuse(materialSearchBar: MaterialSearchBar, focuse: Boolean) {
-//    materialSearchBar.searchEditText.focu
     // do nothing
 }
 
