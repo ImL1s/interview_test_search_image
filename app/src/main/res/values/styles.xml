@@ -1,5 +1,12 @@
 <resources>
 
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
     <style name="defaultProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
         <item name="android:layout_width">@dimen/common_progress_bar_size</item>
         <item name="android:layout_height">@dimen/common_progress_bar_size</item>

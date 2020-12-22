@@ -26,7 +26,7 @@ class SearchFragment : Fragment() {
         viewModel = this@SearchFragment.viewModel
         recyclerView.adapter = SearchResultAdapter()
         lifecycleOwner = this@SearchFragment.viewLifecycleOwner
-
+        searchBar
 //        searchBar.setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
 //            override fun onSearchStateChanged(enabled: Boolean) {
 //                Timber.d("GG: onSearchStateChanged: $enabled")

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Image Search</string>
+    <string name="search_image">搜尋圖片</string>
+    <string name="input_to_search">輸入以搜尋</string>
 </resources>
