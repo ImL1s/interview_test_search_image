@@ -27,10 +27,29 @@
             app:layout_constraintTop_toTopOf="parent"
             app:mt_hint="@string/input_to_search"
             app:mt_maxSuggestionsCount="10"
+            app:mt_menuIconDrawable="@drawable/ic_launcher_background"
             app:mt_placeholder="@string/search_image"
             app:mt_roundedSearchBarEnabled="true"
-            app:mt_speechMode="true"
+            app:mt_speechMode="false"
             app:text="@={viewModel.input}" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_as_grid"
+            app:layout_constraintBottom_toBottomOf="@id/switch_grid"
+            app:layout_constraintEnd_toStartOf="@id/switch_grid"
+            app:layout_constraintTop_toTopOf="@id/switch_grid" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding_8"
+            android:checked="@={viewModel.isGrid}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchBar" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -41,10 +60,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchBar"
+            app:layout_constraintTop_toBottomOf="@id/switch_grid"
             app:source="@{viewModel.hits}">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/let_s_search_something"
+            app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+            app:layout_constraintEnd_toEndOf="@id/recycler_view"
+            app:layout_constraintStart_toStartOf="@id/recycler_view"
+            app:layout_constraintTop_toTopOf="@id/recycler_view"
+            app:visibility="@{viewModel.hits.size == 0}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

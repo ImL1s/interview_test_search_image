@@ -2,4 +2,6 @@
     <string name="app_name">Image Search</string>
     <string name="search_image">搜尋圖片</string>
     <string name="input_to_search">輸入以搜尋</string>
+    <string name="view_as_grid">View As Grid</string>
+    <string name="let_s_search_something"><![CDATA[Let\'s search something (O_<)]]></string>
 </resources>

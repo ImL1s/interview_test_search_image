@@ -8,9 +8,15 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asFlow
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.iml1s.interview.test.databinding.FragmentSearchBinding
 import com.iml1s.interview.test.viewmodel.SearchViewModel
 import com.mancj.materialsearchbar.MaterialSearchBar
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
 
@@ -23,8 +29,12 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = FragmentSearchBinding.inflate(inflater).apply {
-        viewModel = this@SearchFragment.viewModel
-        recyclerView.adapter = SearchResultAdapter()
+        viewModel = this@SearchFragment.viewModel.apply {
+            onChangeGrid.asFlow()
+                .onEach { changeLayout(it) }
+                .launchIn(viewLifecycleOwner.lifecycleScope)
+        }
+        recyclerView.adapter = SearchResultAdapter(isGrid = false, this@SearchFragment.viewModel)
         lifecycleOwner = this@SearchFragment.viewLifecycleOwner
         searchBar.searchEditText.imeOptions = EditorInfo.IME_ACTION_DONE
         searchBar.setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
@@ -44,5 +54,13 @@ class SearchFragment : Fragment() {
             }
         })
     }.root
+
+    private fun FragmentSearchBinding.changeLayout(isGrid: Boolean) = recyclerView.run {
+        layoutManager =
+            if (isGrid) StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            else LinearLayoutManager(requireContext())
+
+        adapter = recyclerView.adapter
+    }
 
 }

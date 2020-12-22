@@ -23,8 +23,9 @@ class SearchViewModel : ViewModel() {
     // region [public property]
     val input = MutableLiveData("")
     val isEditTextFocus = MutableLiveData(false)
+    val isGrid = MutableLiveData(false)
     val hits: LiveData<List<Hits>> = _hits
-    val singleLiveEvent = SingleLiveEvent<Unit>()
+    val onChangeGrid = SingleLiveEvent<Boolean>()
     // endregion
 
     init {
@@ -36,6 +37,11 @@ class SearchViewModel : ViewModel() {
                 Timber.d("GG: search!")
                 _hits.value = it.hits
             }
+            .launchIn(viewModelScope)
+
+        isGrid.asFlow()
+            .distinctUntilChanged()
+            .onEach { onChangeGrid.value = it }
             .launchIn(viewModelScope)
     }
 }
