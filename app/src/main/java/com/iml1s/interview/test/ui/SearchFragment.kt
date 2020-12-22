@@ -27,19 +27,19 @@ class SearchFragment : Fragment() {
         recyclerView.adapter = SearchResultAdapter()
         lifecycleOwner = this@SearchFragment.viewLifecycleOwner
 
-        searchBar.setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
-            override fun onSearchStateChanged(enabled: Boolean) {
-                Timber.d("GG: onSearchStateChanged: $enabled")
-            }
-
-            override fun onSearchConfirmed(text: CharSequence?) {
-                Timber.d("GG: onSearchConfirmed: $text")
-            }
-
-            override fun onButtonClicked(buttonCode: Int) {
-                Timber.d("GG: onButtonClicked: $buttonCode")
-            }
-        })
+//        searchBar.setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
+//            override fun onSearchStateChanged(enabled: Boolean) {
+//                Timber.d("GG: onSearchStateChanged: $enabled")
+//            }
+//
+//            override fun onSearchConfirmed(text: CharSequence?) {
+//                Timber.d("GG: onSearchConfirmed: $text")
+//            }
+//
+//            override fun onButtonClicked(buttonCode: Int) {
+//                Timber.d("GG: onButtonClicked: $buttonCode")
+//            }
+//        })
     }.root
 
 

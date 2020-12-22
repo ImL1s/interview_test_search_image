@@ -27,7 +27,6 @@ class SearchResultViewHolder(private val binding: ViewDataBinding) :
 
     fun bind(hits: Hits) {
         binding.setVariable(BR.url, hits.largeImageUrl)
-//        binding.setVariable(BR.isLoading, true)
     }
 }
 

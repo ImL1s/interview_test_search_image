@@ -57,9 +57,7 @@ fun setImageViewSourceFromUrl(view: ImageView, imageUrl: String?) {
     }
     Glide.with(view.context)
         .load(imageUrl)
-//        .fitCenter()
         .placeholder(R.mipmap.ic_loading)
-//        .fitCenter()
         .into(view)
 }
 // endregion
@@ -77,7 +75,7 @@ fun setRecyclerViewData(recyclerView: RecyclerView, items: List<*>?) {
 }
 // endregion
 
-// region common view
+// region [common view]
 @BindingAdapter("visibility")
 fun setVisible(view: View, show: Boolean?) {
     Timber.v("showHide show = %s", show)
