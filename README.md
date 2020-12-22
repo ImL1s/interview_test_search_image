@@ -14,3 +14,4 @@ This project is for interview test with searching image
 - okhttp3
 - androidx.lifecycle
 - androidx.navigation
+- android databinding & two-way binding
